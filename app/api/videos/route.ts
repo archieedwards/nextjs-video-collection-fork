@@ -11,8 +11,9 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const searchTerm = searchParams.get("searchTerm");
-    const sort = searchParams.get("sort") as SortOption;
-    const direction = (searchParams.get("direction") as SortDirection) || "asc";
+    const sort = (searchParams.get("sort") as SortOption) || "created_at";
+    const direction =
+      (searchParams.get("direction") as SortDirection) || "desc";
     const since = searchParams.get("since") || "1970-01-01";
     const before =
       searchParams.get("before") || new Date().toISOString().split("T")[0];

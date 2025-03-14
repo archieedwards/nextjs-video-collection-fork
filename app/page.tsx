@@ -16,11 +16,21 @@ export default async function Home({
     process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   );
 
-  url.searchParams.set("searchTerm", params.searchTerm || "");
-  url.searchParams.set("sort", params.sort || "");
-  url.searchParams.set("direction", params.direction || "");
-  url.searchParams.set("since", params.since || "");
-  url.searchParams.set("before", params.before || "");
+  if (params.searchTerm) {
+    url.searchParams.set("searchTerm", params.searchTerm);
+  }
+  if (params.sort) {
+    url.searchParams.set("sort", params.sort);
+  }
+  if (params.direction) {
+    url.searchParams.set("direction", params.direction);
+  }
+  if (params.since) {
+    url.searchParams.set("since", params.since);
+  }
+  if (params.before) {
+    url.searchParams.set("before", params.before);
+  }
 
   const res = await fetch(url);
   const videos: Video[] = await res.json();

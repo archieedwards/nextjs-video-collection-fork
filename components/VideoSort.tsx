@@ -5,7 +5,7 @@ import type { SortDirection } from "@/types";
 import { Select, SelectItem } from "@heroui/select";
 import { Button } from "@heroui/button";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ArrowDownNarrowWide, ArrowUpNarrowWide } from "lucide-react";
+import { ArrowDownWideNarrow, ArrowUpWideNarrow } from "lucide-react";
 
 export function VideoSort() {
   const searchParams = useSearchParams();
@@ -26,16 +26,19 @@ export function VideoSort() {
   const toggleDirection = () => {
     const params = new URLSearchParams(searchParams);
     const currentDirection = (params.get("direction") ||
-      "asc") as SortDirection;
+      "desc") as SortDirection;
 
-    params.set("direction", currentDirection === "asc" ? "desc" : "asc");
+    params.set("direction", currentDirection === "desc" ? "asc" : "desc");
     replace(`${pathname}?${params.toString()}`);
   };
+
+  const sort = searchParams.get("sort") || "created_at";
+  const sortDirection = searchParams.get("direction") || "desc";
 
   return (
     <div className="flex gap-2 items-center justify-end">
       <Select
-        defaultSelectedKeys={[searchParams.get("sort") || "created_at"]}
+        defaultSelectedKeys={[sort]}
         label="Sort by"
         className="w-[200px]"
         size="sm"
@@ -51,10 +54,10 @@ export function VideoSort() {
         size="lg"
         onPress={toggleDirection}
       >
-        {(searchParams.get("direction") || "asc") === "asc" ? (
-          <ArrowUpNarrowWide />
+        {sortDirection === "asc" ? (
+          <ArrowUpWideNarrow />
         ) : (
-          <ArrowDownNarrowWide />
+          <ArrowDownWideNarrow />
         )}
       </Button>
     </div>

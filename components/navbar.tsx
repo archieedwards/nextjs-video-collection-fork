@@ -4,7 +4,6 @@ import {
   NavbarBrand,
 } from "@heroui/navbar";
 
-import { title } from "@/components/primitives";
 import { ThemeSwitch } from "@/components/ThemeSwitch";
 
 export const NavBar = () => {
@@ -16,7 +15,7 @@ export const NavBar = () => {
     >
       <NavbarContent className="flex items-center">
         <NavbarBrand className="flex-1 flex justify-center">
-          <h1 className={title({ size: "sm" })}>Video Collection</h1>
+          <h1 className="text-2xl font-bold">Video Collection</h1>
         </NavbarBrand>
         <ThemeSwitch />
       </NavbarContent>

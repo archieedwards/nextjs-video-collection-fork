@@ -3,6 +3,7 @@ import type { SearchParams, Video } from "@/types";
 import { VideosGrid } from "@/components/VideosGrid";
 import { VideoSearch } from "@/components/VideoSearch";
 import { VideoSort } from "@/components/VideoSort";
+import { VideoDateFilter } from "@/components/VideoDateFilter";
 
 export default async function Home({
   searchParams,
@@ -28,7 +29,10 @@ export default async function Home({
     <section className="flex flex-col items-center justify-center gap-10 py-4 md:py-10">
       <div className="w-full flex flex-col gap-4">
         <VideoSearch />
-        <VideoSort />
+        <div className="flex gap-4 items-center justify-end">
+          <VideoDateFilter />
+          <VideoSort />
+        </div>
       </div>
       <VideosGrid videos={videos} />
     </section>

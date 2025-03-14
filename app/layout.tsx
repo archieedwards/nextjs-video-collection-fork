@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -44,7 +47,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "system" }}>
           <div className="relative flex flex-col h-screen">
             <NavBar />
-            <main className="container mx-auto max-w-7xl px-6 flex-grow">
+            <main className="container mx-auto max-w-7xl px-4 sm:px-6 flex-grow">
               {children}
             </main>
             <Footer />

@@ -1,84 +1,64 @@
 import type { NextRequest } from "next/server";
-import type { SortOption, SortDirection, VideoTag } from "@/types";
 
 import { NextResponse } from "next/server";
 
 import { videos } from "@/data/videos";
-import { videoTags } from "@/data/videoTags";
-import { isValidISODate } from "@/helpers/validation";
+import { searchParamsSchema } from "@/helpers/validation";
 import { sortByCreatedAt, sortByTitle } from "@/helpers/sort";
 
 export async function GET(request: NextRequest) {
-  try {
-    const searchParams = request.nextUrl.searchParams;
-    const searchTerm = searchParams.get("searchTerm");
-    const sort = (searchParams.get("sort") as SortOption) || "created_at";
-    const direction =
-      (searchParams.get("direction") as SortDirection) || "desc";
-    const since = searchParams.get("since") || "1970-01-01";
-    const before =
-      searchParams.get("before") || new Date().toISOString().split("T")[0];
-    const rawTags = searchParams.get("tags")?.split(",").filter(Boolean) || [];
-    const tags = rawTags.filter((tag): tag is VideoTag =>
-      videoTags.includes(tag as VideoTag),
-    );
+  const searchParams = request.nextUrl.searchParams;
 
-    if (!isValidISODate(since)) {
-      return NextResponse.json(
-        { error: "Invalid since date format. Use YYYY-MM-DD or ISO 8601" },
-        { status: 400 },
-      );
-    }
+  // Get raw values, let Zod handle the validation and defaults
+  const rawInput = {
+    searchTerm: searchParams.get("searchTerm") ?? undefined,
+    sort: searchParams.get("sort") ?? undefined,
+    direction: searchParams.get("direction") ?? undefined,
+    since: searchParams.get("since") ?? undefined,
+    before: searchParams.get("before") ?? undefined,
+    tags: searchParams.get("tags")?.split(",").filter(Boolean) ?? undefined,
+  };
 
-    if (!isValidISODate(before)) {
-      return NextResponse.json(
-        { error: "Invalid before date format. Use YYYY-MM-DD or ISO 8601" },
-        { status: 400 },
-      );
-    }
+  const result = searchParamsSchema.safeParse(rawInput);
 
-    let filteredVideos = [...videos];
-
-    const sinceDate = new Date(
-      since.includes("T") ? since : `${since}T00:00:00Z`,
-    ).getTime();
-    const beforeDate = new Date(
-      before.includes("T") ? before : `${before}T23:59:59Z`,
-    ).getTime();
-
-    filteredVideos = filteredVideos.filter((video) => {
-      const videoDate = new Date(video.created_at).getTime();
-
-      return videoDate >= sinceDate && videoDate <= beforeDate;
-    });
-
-    if (searchTerm) {
-      filteredVideos = filteredVideos.filter((video) =>
-        video.title.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-    }
-
-    if (tags.length > 0) {
-      filteredVideos = filteredVideos.filter((video) =>
-        tags.every((tag) => video.tags.includes(tag)),
-      );
-    }
-
-    if (sort === "created_at") {
-      filteredVideos.sort(sortByCreatedAt(direction));
-    } else if (sort === "title") {
-      filteredVideos.sort(sortByTitle(direction));
-    }
-
-    return NextResponse.json(filteredVideos);
-  } catch (error) {
+  if (!result.success) {
     return NextResponse.json(
       {
-        error: `Failed to load videos: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`,
+        error: "Invalid search parameters",
+        details: result.error.issues.map((issue) => ({
+          path: issue.path.join("."),
+          message: issue.message,
+        })),
       },
-      { status: 500 },
+      { status: 400 },
     );
   }
+
+  const params = result.data;
+  let filteredVideos = [...videos];
+
+  filteredVideos = filteredVideos.filter(
+    (video) =>
+      video.created_at >= params.since && video.created_at <= params.before,
+  );
+
+  if (params.searchTerm) {
+    filteredVideos = filteredVideos.filter((video) =>
+      video.title.toLowerCase().includes(params.searchTerm!.toLowerCase()),
+    );
+  }
+
+  if (params.tags.length > 0) {
+    filteredVideos = filteredVideos.filter((video) =>
+      params.tags.every((tag) => video.tags.includes(tag)),
+    );
+  }
+
+  if (params.sort === "created_at") {
+    filteredVideos.sort(sortByCreatedAt(params.direction));
+  } else if (params.sort === "title") {
+    filteredVideos.sort(sortByTitle(params.direction));
+  }
+
+  return NextResponse.json(filteredVideos);
 }

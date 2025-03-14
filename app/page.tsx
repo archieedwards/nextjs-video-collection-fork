@@ -1,10 +1,11 @@
-import type { SearchParams, Video } from "@/types";
+import type { SearchParams } from "@/types";
 
 import { VideosGrid } from "@/components/VideosGrid";
 import { VideoSearch } from "@/components/VideoSearch";
 import { VideoSort } from "@/components/VideoSort";
 import { VideoDateFilter } from "@/components/VideoDateFilter";
 import { VideoTagFilter } from "@/components/VideoTagFilter";
+import { ErrorMessage } from "@/components/ErrorMessage";
 
 export default async function Home({
   searchParams,
@@ -37,7 +38,12 @@ export default async function Home({
   }
 
   const res = await fetch(url);
-  const videos: Video[] = await res.json();
+  const data = await res.json();
+
+  const hasError = !res.ok;
+  const errorMessage = hasError
+    ? data.details?.[0]?.message || data.error || "Unknown error"
+    : null;
 
   return (
     <section className="flex flex-col items-center justify-center gap-10 py-4 md:py-10">
@@ -49,7 +55,11 @@ export default async function Home({
           <VideoSort />
         </div>
       </div>
-      <VideosGrid videos={videos} />
+      {hasError ? (
+        <ErrorMessage message={errorMessage} />
+      ) : (
+        <VideosGrid videos={data} />
+      )}
     </section>
   );
 }

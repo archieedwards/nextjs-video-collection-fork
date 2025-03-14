@@ -4,6 +4,7 @@ import { VideosGrid } from "@/components/VideosGrid";
 import { VideoSearch } from "@/components/VideoSearch";
 import { VideoSort } from "@/components/VideoSort";
 import { VideoDateFilter } from "@/components/VideoDateFilter";
+import { VideoTagFilter } from "@/components/VideoTagFilter";
 
 export default async function Home({
   searchParams,
@@ -31,6 +32,9 @@ export default async function Home({
   if (params.before) {
     url.searchParams.set("before", params.before);
   }
+  if (typeof params.tags === "string") {
+    url.searchParams.set("tags", params.tags);
+  }
 
   const res = await fetch(url);
   const videos: Video[] = await res.json();
@@ -40,6 +44,7 @@ export default async function Home({
       <div className="w-full flex flex-col gap-4">
         <VideoSearch />
         <div className="flex gap-4 items-center justify-end">
+          <VideoTagFilter />
           <VideoDateFilter />
           <VideoSort />
         </div>

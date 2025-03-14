@@ -1,9 +1,10 @@
 import type { NextRequest } from "next/server";
-import type { SortOption, SortDirection } from "@/types";
+import type { SortOption, SortDirection, VideoTag } from "@/types";
 
 import { NextResponse } from "next/server";
 
 import { videos } from "@/data/videos";
+import { videoTags } from "@/data/videoTags";
 import { isValidISODate } from "@/helpers/validation";
 import { sortByCreatedAt, sortByTitle } from "@/helpers/sort";
 
@@ -17,6 +18,10 @@ export async function GET(request: NextRequest) {
     const since = searchParams.get("since") || "1970-01-01";
     const before =
       searchParams.get("before") || new Date().toISOString().split("T")[0];
+    const rawTags = searchParams.get("tags")?.split(",").filter(Boolean) || [];
+    const tags = rawTags.filter((tag): tag is VideoTag =>
+      videoTags.includes(tag as VideoTag),
+    );
 
     if (!isValidISODate(since)) {
       return NextResponse.json(
@@ -50,6 +55,12 @@ export async function GET(request: NextRequest) {
     if (searchTerm) {
       filteredVideos = filteredVideos.filter((video) =>
         video.title.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    if (tags.length > 0) {
+      filteredVideos = filteredVideos.filter((video) =>
+        tags.every((tag) => video.tags.includes(tag)),
       );
     }
 

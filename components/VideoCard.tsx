@@ -8,17 +8,25 @@ import { formatDuration, formatViews, formatDate } from "@/helpers/format";
 
 interface VideoCardProps {
   video: Video;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
-export function VideoCard({ video }: VideoCardProps) {
+export function VideoCard({
+  video,
+  imageWidth = 300,
+  imageHeight = 200,
+}: VideoCardProps) {
   return (
-    <Card className="h-full flex flex-col">
-      <CardHeader className="p-0 overflow-hidden aspect-video relative">
+    <Card className="w-[300px] h-full flex flex-col">
+      <CardHeader className="p-0 overflow-hidden aspect-[3/2] relative">
         <Image
+          removeWrapper
           src={video.thumbnail_url}
           alt={video.title}
-          width={300}
-          height={200}
+          width={imageWidth}
+          height={imageHeight}
+          radius="none"
           className="w-full h-full object-cover"
         />
         <span className="absolute bottom-2 right-2 px-2 py-1 bg-black/75 text-white text-sm rounded z-10">

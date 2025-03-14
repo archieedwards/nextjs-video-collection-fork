@@ -1,8 +1,8 @@
 import type { Video } from "@/types";
 
-import { Card, CardHeader, CardBody } from "@heroui/card";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
 import { Image } from "@heroui/image";
-import { Badge } from "@heroui/badge";
+import { Chip } from "@heroui/chip";
 
 import { formatDuration, formatViews, formatDate } from "@/helpers/format";
 
@@ -12,7 +12,7 @@ interface VideoCardProps {
 
 export function VideoCard({ video }: VideoCardProps) {
   return (
-    <Card>
+    <Card className="h-full flex flex-col">
       <CardHeader className="p-0 overflow-hidden aspect-video relative">
         <Image
           src={video.thumbnail_url}
@@ -25,20 +25,22 @@ export function VideoCard({ video }: VideoCardProps) {
           {formatDuration(video.duration)}
         </span>
       </CardHeader>
-      <CardBody>
-        <h4 className="text-lg font-semibold">{video.title}</h4>
-        <p className="text-sm text-gray-500">
+      <CardBody className="flex-grow flex flex-col gap-3">
+        <span className="text-md font-semibold">{video.title}</span>
+        <p className="text-sm text-gray-500 mt-auto">
           {formatViews(video.views)} <span className="mx-2">•</span>{" "}
           {formatDate(video.created_at)}
         </p>
-        <div className="flex flex-wrap gap-2 mt-2">
+      </CardBody>
+      <CardFooter>
+        <div className="flex flex-wrap gap-2">
           {video.tags.map((tag) => (
-            <Badge key={tag} color="primary" size="sm">
+            <Chip key={tag} color="primary" variant="flat" size="sm">
               {tag}
-            </Badge>
+            </Chip>
           ))}
         </div>
-      </CardBody>
+      </CardFooter>
     </Card>
   );
 }

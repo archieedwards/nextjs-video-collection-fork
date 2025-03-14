@@ -69,7 +69,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
           ),
         })}
       >
-        {!isSelected || isSSR ? <Sun size={24} /> : <Moon size={24} />}
+        {!isSelected || isSSR ? <Moon size={24} /> : <Sun size={24} />}
       </div>
     </Component>
   );

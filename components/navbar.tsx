@@ -7,7 +7,7 @@ import {
 import { title } from "@/components/primitives";
 import { ThemeSwitch } from "@/components/ThemeSwitch";
 
-export const Navbar = () => {
+export const NavBar = () => {
   return (
     <HeroUINavbar
       className="h-[70px] flex items-center"

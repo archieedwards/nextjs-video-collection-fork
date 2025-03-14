@@ -2,6 +2,7 @@ import type { SearchParams, Video } from "@/types";
 
 import { title } from "@/components/primitives";
 import { VideosGrid } from "@/components/VideosGrid";
+import { VideoSearch } from "@/components/VideoSearch";
 
 export default async function Home({
   searchParams,
@@ -28,6 +29,7 @@ export default async function Home({
       <div className="inline-block max-w-xl text-center justify-center">
         <h1 className={title()}>Video Collection</h1>
       </div>
+      <VideoSearch />
       <VideosGrid videos={videos} />
     </section>
   );

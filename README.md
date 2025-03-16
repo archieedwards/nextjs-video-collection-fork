@@ -1,53 +1,142 @@
-# Next.js & HeroUI Template
+# Video Collection
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+A video collection powered by Next.js 15 (App Router) and HeroUI 2.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Tech Stack
 
-## Technologies Used
-
-- [Next.js 14](https://nextjs.org/docs/getting-started)
+- [Next.js 15](https://nextjs.org/docs/getting-started)
 - [HeroUI v2](https://heroui.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+- [Zod](https://zod.dev/)
 
-## How to Use
+## Features
 
-### Use the template with create-next-app
+- Routing
+- SSR
+- Responsive
+- Search by title
+- Date filter
+- Tags filter
+- Sorting options
+- Detail page
 
-To create a new project based on this template using `create-next-app`, run the following command:
+### How to run locally
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+To install dependencies:
 
 ```bash
 npm install
 ```
 
-### Run the development server
+To run a local preview:
 
 ```bash
 npm run dev
 ```
 
-### Setup pnpm (optional)
+## APIs
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+### GET /api/videos
 
-```bash
-public-hoist-pattern[]=*@heroui/*
+Retrieves a paginated list of videos with optional filtering, sorting, and search capabilities.
+
+#### Query Parameters
+
+- `searchTerm` (optional): Search videos by title (max 100 characters)
+- `sort` (optional): Sort videos by field
+  - Values: `created_at` (default) | `title`
+- `direction` (optional): Sort direction
+  - Values: `desc` (default) | `asc`
+- `since` (optional): Filter videos created after date (ISO format: YYYY-MM-DD)
+  - Default: `1970-01-01`
+- `before` (optional): Filter videos created before date (ISO format: YYYY-MM-DD)
+  - Default: current date
+- `tags` (optional): Filter by tags (comma-separated)
+  - Example: `tags=YouTube,SEO,marketing`
+- `page` (optional): Page number for pagination
+  - Default: `1`
+- `per_page` (optional): Number of items per page
+  - Default: `20`
+
+#### Response
+
+```json
+{
+  "items": [
+    {
+      "id": string,
+      "title": string,
+      "thumbnail_url": string,
+      "created_at": string,
+      "duration": number,
+      "views": number,
+      "tags": string[]
+    }
+  ],
+  "total": number,
+  "page": number,
+  "per_page": number,
+  "total_pages": number
+}
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+#### Example
 
-## License
+```bash
+GET /api/videos?searchTerm=marketing&sort=title&direction=asc&tags=SEO,YouTube&page=1&per_page=20
+```
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+### GET /api/videos/[id]
+
+Retrieves a specific video by ID.
+
+#### Parameters
+
+- `id`: Video ID (path parameter)
+
+#### Response
+
+```json
+{
+  "id": string,
+  "title": string,
+  "thumbnail_url": string,
+  "created_at": string,
+  "duration": number,
+  "views": number,
+  "tags": string[]
+}
+```
+
+#### Example
+
+```bash
+GET /api/videos/v-001
+```
+
+#### Error Responses
+
+Both endpoints may return the following error responses:
+
+- `400 Bad Request`: Invalid parameters
+  ```json
+  {
+    "error": "Invalid search parameters",
+    "details": [
+      {
+        "path": "parameter_name",
+        "message": "Error message"
+      }
+    ]
+  }
+  ```
+- `404 Not Found`: Video not found (only for /api/videos/[id])
+  ```json
+  {
+    "error": "Video not found"
+  }
+  ```
+
+
+

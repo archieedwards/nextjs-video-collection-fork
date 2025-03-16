@@ -20,6 +20,7 @@ export function VideoSort() {
     } else {
       params.delete("sort");
     }
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -29,6 +30,7 @@ export function VideoSort() {
       "desc") as SortDirection;
 
     params.set("direction", currentDirection === "desc" ? "asc" : "desc");
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -36,11 +38,11 @@ export function VideoSort() {
   const sortDirection = searchParams.get("direction") || "desc";
 
   return (
-    <div className="flex gap-2 items-center justify-end">
+    <div className="flex gap-2 items-center w-full sm:w-auto">
       <Select
         defaultSelectedKeys={[sort]}
         label="Sort by"
-        className="w-[200px]"
+        className="w-full sm:w-[200px]"
         size="sm"
         onChange={(value) => handleSortChange(value.target.value)}
       >

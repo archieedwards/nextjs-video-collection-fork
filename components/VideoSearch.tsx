@@ -19,12 +19,14 @@ export function VideoSearch() {
     } else {
       params.delete("searchTerm");
     }
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   }, 300);
 
   return (
     <div className="w-full">
       <Input
+        className="w-full"
         defaultValue={searchParams.get("searchTerm")?.toString()}
         placeholder="Search videos by title..."
         type="search"

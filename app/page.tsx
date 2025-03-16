@@ -6,6 +6,7 @@ import { VideoSort } from "@/components/VideoSort";
 import { VideoDateFilter } from "@/components/VideoDateFilter";
 import { VideoTagFilter } from "@/components/VideoTagFilter";
 import { ErrorMessage } from "@/components/ErrorMessage";
+import { VideoPagination } from "@/components/VideoPagination";
 
 export default async function Home({
   searchParams,
@@ -36,6 +37,12 @@ export default async function Home({
   if (typeof params.tags === "string") {
     url.searchParams.set("tags", params.tags);
   }
+  if (params.page) {
+    url.searchParams.set("page", params.page.toString());
+  }
+  if (params.per_page) {
+    url.searchParams.set("per_page", params.per_page.toString());
+  }
 
   const res = await fetch(url);
   const data = await res.json();
@@ -49,7 +56,7 @@ export default async function Home({
     <section className="flex flex-col items-center justify-center gap-10 py-4 md:py-10">
       <div className="w-full flex flex-col gap-4">
         <VideoSearch />
-        <div className="flex gap-4 items-center justify-end">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-center sm:justify-end">
           <VideoTagFilter />
           <VideoDateFilter />
           <VideoSort />
@@ -58,7 +65,13 @@ export default async function Home({
       {hasError ? (
         <ErrorMessage message={errorMessage} />
       ) : (
-        <VideosGrid videos={data} />
+        <>
+          <VideosGrid videos={data.items} />
+          <VideoPagination
+            page={Number(data.page)}
+            total_pages={Number(data.total_pages)}
+          />
+        </>
       )}
     </section>
   );

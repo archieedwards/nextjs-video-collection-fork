@@ -31,7 +31,7 @@ export function VideoTagFilter() {
       label="Filter by tags"
       selectionMode="multiple"
       selectedKeys={tags}
-      className="w-[200px]"
+      className="w-full sm:w-[200px]"
       variant="flat"
       size="sm"
       onSelectionChange={handleTagsChange}

@@ -28,4 +28,6 @@ export type SearchParams = {
   since?: string;
   before?: string;
   tags?: VideoTag[];
+  page?: number;
+  per_page?: number;
 };

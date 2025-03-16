@@ -7,11 +7,15 @@ const DEFAULT_PARAMS = {
   direction: "desc",
   since: "1970-01-01",
   before: new Date().toISOString(),
+  page: "1",
+  per_page: "20",
 } as const;
 
 const dateStringSchema = z
   .string()
   .regex(/^\d{4}-\d{2}-\d{2}/, "Invalid date format");
+
+const pageSchema = z.string().regex(/^\d+$/, "Invalid page number");
 
 const baseDateRangeSchema = z.object({
   since: dateStringSchema.default(DEFAULT_PARAMS.since),
@@ -37,6 +41,8 @@ const baseSearchParamsSchema = z.object({
   sort: z.enum(["created_at", "title"]).default(DEFAULT_PARAMS.sort),
   direction: z.enum(["asc", "desc"]).default(DEFAULT_PARAMS.direction),
   tags: z.array(z.enum(videoTags)).default(() => []),
+  page: pageSchema.default(DEFAULT_PARAMS.page),
+  per_page: pageSchema.default(DEFAULT_PARAMS.per_page),
 });
 
 export const searchParamsSchema = baseSearchParamsSchema

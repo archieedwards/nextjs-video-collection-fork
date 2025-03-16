@@ -17,6 +17,8 @@ export async function GET(request: NextRequest) {
     since: searchParams.get("since") ?? undefined,
     before: searchParams.get("before") ?? undefined,
     tags: searchParams.get("tags")?.split(",").filter(Boolean) ?? undefined,
+    page: searchParams.get("page") ?? undefined,
+    per_page: searchParams.get("per_page") ?? undefined,
   };
 
   const result = searchParamsSchema.safeParse(rawInput);
@@ -60,5 +62,17 @@ export async function GET(request: NextRequest) {
     filteredVideos.sort(sortByTitle(params.direction));
   }
 
-  return NextResponse.json(filteredVideos);
+  const total = filteredVideos.length;
+  const page = Number(params.page);
+  const per_page = Number(params.per_page);
+  const start = (page - 1) * per_page;
+  const end = start + per_page;
+
+  return NextResponse.json({
+    items: filteredVideos.slice(start, end),
+    total,
+    page,
+    per_page,
+    total_pages: Math.ceil(total / per_page),
+  });
 }

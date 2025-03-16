@@ -41,6 +41,7 @@ export function VideoDateFilter() {
       params.delete("since");
       validateAndUpdateDates(null, before);
     }
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -58,6 +59,7 @@ export function VideoDateFilter() {
       params.delete("before");
       validateAndUpdateDates(since, null);
     }
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
 
@@ -69,10 +71,9 @@ export function VideoDateFilter() {
   }, [since, before]);
 
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex flex-col sm:flex-row gap-2 items-center w-full sm:w-auto">
       <DatePicker
         label="From"
-        className="w-[140px]"
         defaultValue={since ? parseDate(since) : undefined}
         variant="flat"
         isInvalid={hasError}
@@ -81,7 +82,6 @@ export function VideoDateFilter() {
       />
       <DatePicker
         label="To"
-        className="w-[140px]"
         defaultValue={before ? parseDate(before) : undefined}
         variant="flat"
         isInvalid={hasError}

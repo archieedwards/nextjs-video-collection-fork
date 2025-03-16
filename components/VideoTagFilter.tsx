@@ -21,6 +21,7 @@ export function VideoTagFilter() {
     } else {
       params.delete("tags");
     }
+    params.delete("page");
     replace(`${pathname}?${params.toString()}`);
   };
 

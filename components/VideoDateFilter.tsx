@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { parseDate, type CalendarDate } from "@internationalized/date";
 import { useState, useEffect } from "react";
 
-import { dateRangeSchema } from "@/helpers/validation";
+import { dateRangeSchema, validateDateString } from "@/helpers/validation";
 
 export function VideoDateFilter() {
   const searchParams = useSearchParams();
@@ -13,10 +13,7 @@ export function VideoDateFilter() {
   const { replace } = useRouter();
   const [hasError, setHasError] = useState(false);
 
-  const validateAndUpdateDates = (
-    since: string | null,
-    before: string | null,
-  ) => {
+  const validateDates = (since: string | null, before: string | null) => {
     const result = dateRangeSchema.safeParse({
       since: since || undefined,
       before: before || undefined,
@@ -34,12 +31,12 @@ export function VideoDateFilter() {
     if (date) {
       const dateStr = date.toString();
 
-      if (validateAndUpdateDates(dateStr, before)) {
+      if (validateDates(dateStr, before)) {
         params.set("since", dateStr);
       }
     } else {
       params.delete("since");
-      validateAndUpdateDates(null, before);
+      validateDates(null, before);
     }
     params.delete("page");
     replace(`${pathname}?${params.toString()}`);
@@ -52,12 +49,12 @@ export function VideoDateFilter() {
     if (date) {
       const dateStr = date.toString();
 
-      if (validateAndUpdateDates(since, dateStr)) {
+      if (validateDates(since, dateStr)) {
         params.set("before", dateStr);
       }
     } else {
       params.delete("before");
-      validateAndUpdateDates(since, null);
+      validateDates(since, null);
     }
     params.delete("page");
     replace(`${pathname}?${params.toString()}`);
@@ -67,14 +64,16 @@ export function VideoDateFilter() {
   const before = searchParams.get("before");
 
   useEffect(() => {
-    validateAndUpdateDates(since, before);
+    validateDates(since, before);
   }, [since, before]);
 
   return (
     <div className="flex flex-col sm:flex-row gap-2 items-center w-full sm:w-auto">
       <DatePicker
         label="From"
-        defaultValue={since ? parseDate(since) : undefined}
+        defaultValue={
+          since && validateDateString(since) ? parseDate(since) : undefined
+        }
         variant="flat"
         isInvalid={hasError}
         size="sm"
@@ -82,7 +81,9 @@ export function VideoDateFilter() {
       />
       <DatePicker
         label="To"
-        defaultValue={before ? parseDate(before) : undefined}
+        defaultValue={
+          before && validateDateString(before) ? parseDate(before) : undefined
+        }
         variant="flat"
         isInvalid={hasError}
         size="sm"

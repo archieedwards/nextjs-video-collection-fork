@@ -56,10 +56,10 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  if (params.sort === "created_at") {
-    filteredVideos.sort(sortByCreatedAt(params.direction));
-  } else if (params.sort === "title") {
+  if (params.sort === "title") {
     filteredVideos.sort(sortByTitle(params.direction));
+  } else {
+    filteredVideos.sort(sortByCreatedAt(params.direction));
   }
 
   const total = filteredVideos.length;

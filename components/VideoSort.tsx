@@ -34,13 +34,13 @@ export function VideoSort() {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const sort = searchParams.get("sort") || "created_at";
+  const sort = searchParams.get("sort");
   const sortDirection = searchParams.get("direction") || "desc";
 
   return (
     <div className="flex gap-2 items-center w-full sm:w-auto">
       <Select
-        defaultSelectedKeys={[sort]}
+        defaultSelectedKeys={sort ? [sort] : undefined}
         label="Sort by"
         className="w-full sm:w-[200px]"
         size="sm"
@@ -51,6 +51,7 @@ export function VideoSort() {
       </Select>
       <Button
         isIconOnly
+        isDisabled={!sort}
         variant="flat"
         aria-label="Toggle sort direction"
         size="lg"

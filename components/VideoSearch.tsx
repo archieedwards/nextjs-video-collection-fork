@@ -6,6 +6,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { Search } from "lucide-react";
 
+import { searchTermSchema } from "@/helpers/validation";
+
 export function VideoSearch() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -13,9 +15,10 @@ export function VideoSearch() {
 
   const handleSearch = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams);
+    const result = searchTermSchema.safeParse(term);
 
-    if (term) {
-      params.set("searchTerm", term);
+    if (result.success && result.data) {
+      params.set("searchTerm", result.data);
     } else {
       params.delete("searchTerm");
     }

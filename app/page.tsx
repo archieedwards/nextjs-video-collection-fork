@@ -48,8 +48,11 @@ export default async function Home({
   const data = await res.json();
 
   const hasError = !res.ok;
+  const errorStatus = hasError ? res.status : null;
   const errorMessage = hasError
-    ? data.details?.[0]?.message || data.error || "Unknown error"
+    ? data.details?.[0]?.message + ` (${errorStatus})` ||
+      data.error ||
+      "Unknown error"
     : null;
 
   return (

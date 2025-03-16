@@ -2,6 +2,8 @@
 
 A video collection powered by Next.js 15 (App Router) and HeroUI 2.
 
+Live preview: https://nextjs-video-collection.fly.dev/
+
 ## Tech Stack
 
 - [Next.js 15](https://nextjs.org/docs/getting-started)

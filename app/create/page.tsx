@@ -45,7 +45,7 @@ export default function CreateVideo() {
               />
             </div>
             <div className="flex justify-end gap-2">
-              <Button as={Link} href="/" variant="flat" color="danger">
+              <Button as={Link} href="/" variant="flat">
                 Cancel
               </Button>
               <Button color="primary" type="submit">

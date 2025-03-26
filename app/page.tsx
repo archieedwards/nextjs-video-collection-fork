@@ -1,5 +1,8 @@
 import type { SearchParams } from "@/types";
 
+import { Button } from "@heroui/button";
+import Link from "next/link";
+
 import { VideosGrid } from "@/components/VideosGrid";
 import { VideoSearch } from "@/components/VideoSearch";
 import { VideoSort } from "@/components/VideoSort";
@@ -16,7 +19,7 @@ export default async function Home({
   const params = await searchParams;
   const url = new URL(
     "/api/videos",
-    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   );
 
   if (params.searchTerm) {
@@ -58,7 +61,12 @@ export default async function Home({
   return (
     <section className="flex flex-col items-center justify-center gap-10 py-4 md:py-10">
       <div className="w-full flex flex-col gap-4">
-        <VideoSearch />
+        <div className="flex items-center justify-between gap-4">
+          <VideoSearch />
+          <Button as={Link} href="/create" color="primary">
+            Create video
+          </Button>
+        </div>
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 sm:items-center sm:justify-end">
           <VideoTagFilter />
           <VideoDateFilter />

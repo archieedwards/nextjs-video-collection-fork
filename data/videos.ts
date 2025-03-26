@@ -4,6 +4,8 @@ export const videos: Video[] = [
   {
     id: "v-001",
     title: "Introduction to VEED's Video Editor",
+    description:
+      "Get started with VEED's powerful video editing platform in this comprehensive beginner's guide. Learn the basic interface, essential tools, and fundamental editing techniques that will help you create professional-looking videos from day one.",
     thumbnail_url: "https://picsum.photos/seed/video1/300/200",
     created_at: "2025-01-15T14:23:11Z",
     duration: 184,
@@ -13,6 +15,8 @@ export const videos: Video[] = [
   {
     id: "v-002",
     title: "Advanced Color Correction Techniques",
+    description:
+      "Dive deep into professional color grading techniques. Master the art of color correction, learn about color theory, and discover advanced tools for achieving cinematic looks in your videos.",
     thumbnail_url: "https://picsum.photos/seed/video2/300/200",
     created_at: "2025-01-10T09:45:22Z",
     duration: 842,
@@ -22,6 +26,8 @@ export const videos: Video[] = [
   {
     id: "v-003",
     title: "Creating Engaging Social Media Videos",
+    description:
+      "Learn how to create scroll-stopping social media content that drives engagement. Discover proven strategies for optimizing your videos for different platforms and keeping your audience hooked from start to finish.",
     thumbnail_url: "https://picsum.photos/seed/video3/300/200",
     created_at: "2025-01-22T16:12:05Z",
     duration: 367,
@@ -31,6 +37,8 @@ export const videos: Video[] = [
   {
     id: "v-004",
     title: "How to Add Subtitles Automatically",
+    description:
+      "Make your videos accessible to a wider audience with automatic subtitles. Learn how to use AI-powered tools to generate accurate captions, edit them for perfection, and format them for maximum readability.",
     thumbnail_url: "https://picsum.photos/seed/video4/300/200",
     created_at: "2024-12-18T11:34:50Z",
     duration: 245,
@@ -40,6 +48,8 @@ export const videos: Video[] = [
   {
     id: "v-005",
     title: "Video SEO Fundamentals",
+    description:
+      "Boost your video's visibility with essential SEO techniques. Learn how to optimize titles, descriptions, and tags to improve your video's discoverability across different platforms and search engines.",
     thumbnail_url: "https://picsum.photos/seed/video5/300/200",
     created_at: "2024-12-05T08:19:33Z",
     duration: 654,
@@ -49,6 +59,8 @@ export const videos: Video[] = [
   {
     id: "v-006",
     title: "Creating Professional Transitions",
+    description:
+      "Elevate your video editing skills with professional-grade transitions. Learn how to seamlessly connect scenes, create custom transitions, and use effects to enhance your video's flow and visual appeal.",
     thumbnail_url: "https://picsum.photos/seed/video6/300/200",
     created_at: "2025-02-01T15:27:18Z",
     duration: 421,
@@ -58,6 +70,8 @@ export const videos: Video[] = [
   {
     id: "v-007",
     title: "Mobile Video Editing Tips",
+    description:
+      "Master the art of editing videos on your mobile device. Discover essential tips, tricks, and apps for creating professional content while on the go, perfect for content creators who need flexibility in their workflow.",
     thumbnail_url: "https://picsum.photos/seed/video7/300/200",
     created_at: "2025-01-28T12:48:29Z",
     duration: 318,
@@ -67,6 +81,8 @@ export const videos: Video[] = [
   {
     id: "v-008",
     title: "Optimizing Video for Different Platforms",
+    description:
+      "Learn how to optimize your videos for various social media platforms and websites. Understand the best export settings, aspect ratios, and compression techniques to ensure your content looks great everywhere.",
     thumbnail_url: "https://picsum.photos/seed/video8/300/200",
     created_at: "2024-11-30T10:15:42Z",
     duration: 498,
@@ -76,6 +92,8 @@ export const videos: Video[] = [
   {
     id: "v-009",
     title: "Creating Animated Text Effects",
+    description:
+      "Transform your videos with eye-catching animated text effects. Master motion graphics techniques, learn about typography in motion, and create professional text animations that enhance your video's message.",
     thumbnail_url: "https://picsum.photos/seed/video9/300/200",
     created_at: "2025-02-10T17:36:07Z",
     duration: 275,
@@ -85,6 +103,8 @@ export const videos: Video[] = [
   {
     id: "v-010",
     title: "Green Screen Editing Masterclass",
+    description:
+      "Master the art of chroma key editing in this comprehensive guide. Learn advanced techniques for clean keying, realistic compositing, and creative uses of green screen effects in your videos.",
     thumbnail_url: "https://picsum.photos/seed/video10/300/200",
     created_at: "2025-01-05T13:52:31Z",
     duration: 732,
@@ -94,6 +114,8 @@ export const videos: Video[] = [
   {
     id: "v-011",
     title: "Audio Mixing for Video Content",
+    description:
+      "Perfect your video's audio quality with professional mixing techniques. Learn about sound design, audio balancing, and how to create an immersive auditory experience that complements your visual content.",
     thumbnail_url: "https://picsum.photos/seed/video11/300/200",
     created_at: "2024-12-12T09:24:15Z",
     duration: 547,
@@ -103,6 +125,8 @@ export const videos: Video[] = [
   {
     id: "v-012",
     title: "Creating Viral Short-Form Content",
+    description:
+      "Discover the secrets to creating viral short-form videos that capture attention and drive shares. Learn about current trends, storytelling techniques, and strategies for maximizing engagement in brief content.",
     thumbnail_url: "https://picsum.photos/seed/video12/300/200",
     created_at: "2025-02-15T11:05:38Z",
     duration: 189,
@@ -112,6 +136,8 @@ export const videos: Video[] = [
   {
     id: "v-013",
     title: "Video Production on a Budget",
+    description:
+      "Create professional-looking videos without breaking the bank. Learn cost-effective production techniques, discover affordable equipment options, and maximize your resources for high-quality content creation.",
     thumbnail_url: "https://picsum.photos/seed/video13/300/200",
     created_at: "2024-11-20T16:48:22Z",
     duration: 612,
@@ -121,6 +147,8 @@ export const videos: Video[] = [
   {
     id: "v-014",
     title: "Using AI for Video Enhancement",
+    description:
+      "Explore cutting-edge AI tools for improving your videos. Learn how to use artificial intelligence for automated editing, enhancement, and creative effects that save time while producing professional results.",
     thumbnail_url: "https://picsum.photos/seed/video14/300/200",
     created_at: "2025-02-05T14:37:19Z",
     duration: 426,
@@ -130,6 +158,8 @@ export const videos: Video[] = [
   {
     id: "v-015",
     title: "Creating Stunning Video Intros",
+    description:
+      "Learn how to create memorable and impactful video introductions that capture attention from the first second. Master branding elements, animation techniques, and design principles for professional intros.",
     thumbnail_url: "https://picsum.photos/seed/video15/300/200",
     created_at: "2025-01-18T10:29:45Z",
     duration: 284,
@@ -139,6 +169,8 @@ export const videos: Video[] = [
   {
     id: "v-016",
     title: "Video Compression Explained",
+    description:
+      "Understand the technical aspects of video compression and how it affects file size and quality. Learn optimal compression settings for different platforms while maintaining visual fidelity.",
     thumbnail_url: "https://picsum.photos/seed/video16/300/200",
     created_at: "2024-12-03T08:56:12Z",
     duration: 357,
@@ -148,6 +180,8 @@ export const videos: Video[] = [
   {
     id: "v-017",
     title: "Creating Educational Video Content",
+    description:
+      "Master the art of creating engaging educational videos that effectively convey complex information. Learn instructional design principles, visualization techniques, and best practices for e-learning content.",
     thumbnail_url: "https://picsum.photos/seed/video17/300/200",
     created_at: "2024-11-15T13:41:27Z",
     duration: 529,
@@ -157,6 +191,8 @@ export const videos: Video[] = [
   {
     id: "v-018",
     title: "Advanced Timeline Editing Techniques",
+    description:
+      "Take your editing skills to the next level with advanced timeline techniques. Learn professional methods for complex edits, nested sequences, and efficient timeline management.",
     thumbnail_url: "https://picsum.photos/seed/video18/300/200",
     created_at: "2025-01-25T15:18:33Z",
     duration: 615,
@@ -166,6 +202,8 @@ export const videos: Video[] = [
   {
     id: "v-019",
     title: "Creating Cinematic Video Looks",
+    description:
+      "Transform your footage into cinematic masterpieces with professional color grading and visual effects. Learn techniques used in film production to give your videos a premium, movie-like quality.",
     thumbnail_url: "https://picsum.photos/seed/video19/300/200",
     created_at: "2025-02-08T12:07:54Z",
     duration: 478,
@@ -175,6 +213,8 @@ export const videos: Video[] = [
   {
     id: "v-020",
     title: "Video Editing Keyboard Shortcuts",
+    description:
+      "Boost your editing efficiency with essential keyboard shortcuts. Master time-saving techniques and optimize your workflow to edit faster and more professionally.",
     thumbnail_url: "https://picsum.photos/seed/video20/300/200",
     created_at: "2024-12-28T09:36:11Z",
     duration: 196,
@@ -184,6 +224,8 @@ export const videos: Video[] = [
   {
     id: "v-021",
     title: "Creating Compelling Video Ads",
+    description:
+      "Learn how to create effective video advertisements that drive conversions. Master techniques for crafting compelling marketing messages and engaging visuals that resonate with your target audience.",
     thumbnail_url: "https://picsum.photos/seed/video21/300/200",
     created_at: "2025-01-12T14:53:26Z",
     duration: 387,
@@ -193,6 +235,8 @@ export const videos: Video[] = [
   {
     id: "v-022",
     title: "Motion Tracking Fundamentals",
+    description:
+      "Master the basics of motion tracking for advanced video effects. Learn how to track objects, apply effects, and create professional-looking compositions using tracking data.",
     thumbnail_url: "https://picsum.photos/seed/video22/300/200",
     created_at: "2024-12-21T11:29:48Z",
     duration: 564,
@@ -202,6 +246,8 @@ export const videos: Video[] = [
   {
     id: "v-023",
     title: "Effective Video Storytelling",
+    description:
+      "Learn the art of storytelling through video. Master narrative techniques, pacing, and engagement strategies to create compelling stories that resonate with your audience.",
     thumbnail_url: "https://picsum.photos/seed/video23/300/200",
     created_at: "2025-02-12T16:34:19Z",
     duration: 723,
@@ -211,6 +257,8 @@ export const videos: Video[] = [
   {
     id: "v-024",
     title: "Video Aspect Ratios Explained",
+    description:
+      "Understand the importance of aspect ratios in video composition. Learn about different ratio standards, when to use them, and how they affect your video's presentation across various platforms.",
     thumbnail_url: "https://picsum.photos/seed/video24/300/200",
     created_at: "2024-11-25T10:42:37Z",
     duration: 247,
@@ -220,6 +268,8 @@ export const videos: Video[] = [
   {
     id: "v-025",
     title: "Building a YouTube Channel Strategy",
+    description:
+      "Develop a successful YouTube channel strategy from scratch. Learn about content planning, audience growth tactics, and proven methods for building a sustainable presence on the platform.",
     thumbnail_url: "https://picsum.photos/seed/video25/300/200",
     created_at: "2025-01-30T13:18:52Z",
     duration: 685,
@@ -229,6 +279,8 @@ export const videos: Video[] = [
   {
     id: "v-026",
     title: "Video Editing for Beginners",
+    description:
+      "Start your video editing journey with this comprehensive guide for beginners. Learn basic editing concepts, essential tools, and fundamental techniques to create professional-looking videos.",
     thumbnail_url: "https://picsum.photos/seed/video26/300/200",
     created_at: "2024-12-08T15:27:14Z",
     duration: 412,
@@ -238,6 +290,8 @@ export const videos: Video[] = [
   {
     id: "v-027",
     title: "Creating Time-lapse Videos",
+    description:
+      "Master the art of time-lapse videography. Learn techniques for capturing, processing, and editing stunning time-lapse sequences that add a dynamic element to your video projects.",
     thumbnail_url: "https://picsum.photos/seed/video27/300/200",
     created_at: "2025-02-03T09:54:31Z",
     duration: 328,
@@ -247,6 +301,8 @@ export const videos: Video[] = [
   {
     id: "v-028",
     title: "Video Editing Ethics and Best Practices",
+    description:
+      "Explore the ethical considerations and professional standards in video editing. Learn best practices for maintaining integrity while creating compelling content.",
     thumbnail_url: "https://picsum.photos/seed/video28/300/200",
     created_at: "2024-11-10T12:36:45Z",
     duration: 576,
@@ -256,6 +312,8 @@ export const videos: Video[] = [
   {
     id: "v-029",
     title: "Creating Engaging Video Thumbnails",
+    description:
+      "Learn the art of creating eye-catching thumbnails that increase click-through rates. Master design principles, text placement, and visual hierarchy for maximum impact.",
     thumbnail_url: "https://picsum.photos/seed/video29/300/200",
     created_at: "2025-01-08T16:23:09Z",
     duration: 214,
@@ -265,6 +323,8 @@ export const videos: Video[] = [
   {
     id: "v-030",
     title: "Video Collaboration Workflows",
+    description:
+      "Streamline your team's video production process with effective collaboration workflows. Learn best practices for project management, file sharing, and team coordination.",
     thumbnail_url: "https://picsum.photos/seed/video30/300/200",
     created_at: "2024-12-15T11:47:23Z",
     duration: 497,
@@ -274,6 +334,8 @@ export const videos: Video[] = [
   {
     id: "v-031",
     title: "Creating Vertical Videos for Social Media",
+    description:
+      "Master the art of vertical video production for social media platforms. Learn composition techniques, editing strategies, and best practices for mobile-first content.",
     thumbnail_url: "https://picsum.photos/seed/video31/300/200",
     created_at: "2025-02-18T14:12:37Z",
     duration: 265,
@@ -283,6 +345,8 @@ export const videos: Video[] = [
   {
     id: "v-032",
     title: "Video Resolution Guide",
+    description:
+      "Understand everything about video resolutions and quality settings. Learn about different resolution standards, when to use them, and how they affect your final output.",
     thumbnail_url: "https://picsum.photos/seed/video32/300/200",
     created_at: "2024-11-28T09:26:54Z",
     duration: 318,
@@ -292,6 +356,8 @@ export const videos: Video[] = [
   {
     id: "v-033",
     title: "Creating Product Demo Videos",
+    description:
+      "Learn how to create compelling product demonstration videos that showcase features and benefits effectively. Master techniques for highlighting product value and driving customer interest.",
     thumbnail_url: "https://picsum.photos/seed/video33/300/200",
     created_at: "2025-01-20T13:45:19Z",
     duration: 492,
@@ -301,6 +367,8 @@ export const videos: Video[] = [
   {
     id: "v-034",
     title: "Video Lighting Fundamentals",
+    description:
+      "Master the basics of video lighting for professional-looking content. Learn about different lighting techniques, equipment options, and how to achieve the perfect lighting setup.",
     thumbnail_url: "https://picsum.photos/seed/video34/300/200",
     created_at: "2024-12-25T16:38:42Z",
     duration: 589,
@@ -310,6 +378,8 @@ export const videos: Video[] = [
   {
     id: "v-035",
     title: "Creating Branded Video Templates",
+    description:
+      "Design professional video templates that maintain brand consistency across all your content. Learn about template creation, customization, and implementation for efficient video production.",
     thumbnail_url: "https://picsum.photos/seed/video35/300/200",
     created_at: "2025-02-07T10:19:28Z",
     duration: 356,
@@ -319,6 +389,8 @@ export const videos: Video[] = [
   {
     id: "v-036",
     title: "Video Analytics and Performance",
+    description:
+      "Learn how to analyze video performance metrics and use data to improve your content strategy. Master the tools and techniques for tracking engagement and measuring success.",
     thumbnail_url: "https://picsum.photos/seed/video36/300/200",
     created_at: "2024-11-18T12:54:36Z",
     duration: 474,
@@ -328,6 +400,8 @@ export const videos: Video[] = [
   {
     id: "v-037",
     title: "Creating Tutorial Videos",
+    description:
+      "Master the art of creating clear and effective tutorial videos. Learn instructional design principles, step-by-step presentation techniques, and methods for engaging your audience.",
     thumbnail_url: "https://picsum.photos/seed/video37/300/200",
     created_at: "2025-01-27T15:36:21Z",
     duration: 612,
@@ -337,6 +411,8 @@ export const videos: Video[] = [
   {
     id: "v-038",
     title: "Video Copyright and Fair Use",
+    description:
+      "Navigate the complex world of video copyright and fair use guidelines. Learn about legal considerations, licensing, and how to protect your creative work while respecting others' rights.",
     thumbnail_url: "https://picsum.photos/seed/video38/300/200",
     created_at: "2024-12-10T09:47:15Z",
     duration: 528,
@@ -346,6 +422,8 @@ export const videos: Video[] = [
   {
     id: "v-039",
     title: "Creating Live Stream Graphics",
+    description:
+      "Design professional graphics and overlays for live streaming content. Learn about real-time graphics, overlay management, and creating engaging visual elements for live broadcasts.",
     thumbnail_url: "https://picsum.photos/seed/video39/300/200",
     created_at: "2025-02-14T13:28:54Z",
     duration: 347,
@@ -355,6 +433,8 @@ export const videos: Video[] = [
   {
     id: "v-040",
     title: "Video Editing Hardware Guide",
+    description:
+      "Choose the right hardware for your video editing needs. Learn about computer specifications, storage solutions, and equipment recommendations for optimal editing performance.",
     thumbnail_url: "https://picsum.photos/seed/video40/300/200",
     created_at: "2024-11-22T16:15:37Z",
     duration: 683,
@@ -364,6 +444,8 @@ export const videos: Video[] = [
   {
     id: "v-041",
     title: "Creating Stop Motion Videos",
+    description:
+      "Explore the creative world of stop motion animation. Learn techniques for capturing, editing, and producing engaging stop motion videos that bring static objects to life.",
     thumbnail_url: "https://picsum.photos/seed/video41/300/200",
     created_at: "2025-01-03T11:42:19Z",
     duration: 418,
@@ -373,6 +455,8 @@ export const videos: Video[] = [
   {
     id: "v-042",
     title: "Video Content Calendars",
+    description:
+      "Develop an effective content calendar for consistent video production. Learn strategies for planning, organizing, and scheduling your video content to maintain regular engagement.",
     thumbnail_url: "https://picsum.photos/seed/video42/300/200",
     created_at: "2024-12-30T14:23:48Z",
     duration: 295,
@@ -382,6 +466,8 @@ export const videos: Video[] = [
   {
     id: "v-043",
     title: "Creating Video Portfolios",
+    description:
+      "Build a compelling video portfolio that showcases your best work. Learn how to select, organize, and present your video projects professionally to attract clients and opportunities.",
     thumbnail_url: "https://picsum.photos/seed/video43/300/200",
     created_at: "2025-02-20T09:37:26Z",
     duration: 537,
@@ -391,6 +477,8 @@ export const videos: Video[] = [
   {
     id: "v-044",
     title: "Video Export Settings Explained",
+    description:
+      "Master the technical aspects of video exporting. Learn about different formats, codecs, and settings to ensure your videos maintain quality while optimizing for various platforms.",
     thumbnail_url: "https://picsum.photos/seed/video44/300/200",
     created_at: "2024-11-05T13:19:42Z",
     duration: 324,
@@ -400,6 +488,8 @@ export const videos: Video[] = [
   {
     id: "v-045",
     title: "Creating Explainer Videos",
+    description:
+      "Learn how to create engaging explainer videos that simplify complex topics. Master animation techniques, scriptwriting, and visual storytelling for educational content.",
     thumbnail_url: "https://picsum.photos/seed/video45/300/200",
     created_at: "2025-01-16T16:54:33Z",
     duration: 468,
@@ -409,6 +499,8 @@ export const videos: Video[] = [
   {
     id: "v-046",
     title: "Video Call Recording Tips",
+    description:
+      "Optimize your video call recordings for professional results. Learn best practices for recording remote meetings, interviews, and virtual events with high-quality audio and video.",
     thumbnail_url: "https://picsum.photos/seed/video46/300/200",
     created_at: "2024-12-23T10:36:18Z",
     duration: 287,
@@ -418,6 +510,8 @@ export const videos: Video[] = [
   {
     id: "v-047",
     title: "Creating Video Presentations",
+    description:
+      "Transform your business presentations with professional video elements. Learn techniques for creating engaging video presentations that captivate your audience and convey information effectively.",
     thumbnail_url: "https://picsum.photos/seed/video47/300/200",
     created_at: "2025-02-02T15:48:27Z",
     duration: 526,
@@ -427,6 +521,8 @@ export const videos: Video[] = [
   {
     id: "v-048",
     title: "Video Accessibility Guidelines",
+    description:
+      "Make your videos accessible to all audiences. Learn about caption standards, audio descriptions, and other accessibility features that ensure your content reaches everyone.",
     thumbnail_url: "https://picsum.photos/seed/video48/300/200",
     created_at: "2024-11-12T09:27:36Z",
     duration: 432,
@@ -436,6 +532,8 @@ export const videos: Video[] = [
   {
     id: "v-049",
     title: "Creating Video Course Content",
+    description:
+      "Design effective video courses that engage and educate your audience. Learn about course structure, content planning, and delivery methods for successful online learning.",
     thumbnail_url: "https://picsum.photos/seed/video49/300/200",
     created_at: "2025-01-23T13:54:19Z",
     duration: 675,
@@ -445,6 +543,8 @@ export const videos: Video[] = [
   {
     id: "v-050",
     title: "Video SEO for YouTube",
+    description:
+      "Maximize your YouTube video visibility with advanced SEO techniques. Learn strategies for optimizing titles, descriptions, and tags to improve your rankings and reach a wider audience.",
     thumbnail_url: "https://picsum.photos/seed/video50/300/200",
     created_at: "2024-12-18T16:37:28Z",
     duration: 524,

@@ -13,7 +13,7 @@ import { formatDuration, formatViews, formatDate } from "@/helpers/format";
 async function getVideo(id: string) {
   const url = new URL(
     `/api/videos/${id}`,
-    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+    process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
   );
 
   const res = await fetch(url);
@@ -80,6 +80,7 @@ export default async function VideoPage({ params }: PageProps) {
                 <span>{formatDate(video.created_at)}</span>
               </div>
             </div>
+            <p className="text-gray-700">{video.description}</p>
           </CardBody>
           <CardFooter>
             <div className="flex flex-wrap gap-2">

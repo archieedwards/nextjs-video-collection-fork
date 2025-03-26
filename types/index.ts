@@ -14,6 +14,7 @@ export type ThumbnailUrl =
 export type Video = {
   id: string;
   title: string;
+  description: string;
   thumbnail_url: ThumbnailUrl;
   created_at: string;
   duration: number;

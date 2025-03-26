@@ -11,6 +11,7 @@ Live preview: https://nextjs-video-collection.fly.dev/
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Zod](https://zod.dev/)
+- [Prisma](https://www.prisma.io/) with SQLite
 
 ## Features
 
@@ -29,6 +30,17 @@ To install dependencies:
 
 ```bash
 npm install
+```
+
+Initialize the database and seed data:
+
+```bash
+# Create the SQLite database and apply migrations
+npx prisma migrate dev
+
+# This will also run the seed script automatically
+# But if you need to run it manually:
+npx prisma db seed
 ```
 
 To run a local preview:
@@ -139,6 +151,3 @@ Both endpoints may return the following error responses:
     "error": "Video not found"
   }
   ```
-
-
-
